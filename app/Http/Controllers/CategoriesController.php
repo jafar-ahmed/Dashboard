@@ -55,6 +55,7 @@ class CategoriesController extends Controller
                 dispatch(new SendMails($data , 'category'));
             });
         } catch (\Exception $e) {
+//            dd($e->getMessage());
             return $this->unexpectedMessage();
         }
         return redirect('/dashboard/categories')->with('success', 'Category Created Successfully!');
