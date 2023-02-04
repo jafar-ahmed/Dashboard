@@ -25,7 +25,7 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('home', [HomeController::class, 'index']);
+//Route::get('home', [HomeController::class, 'index'])->middleware('auth');
 
 Route::group(
     [
@@ -36,8 +36,8 @@ Route::group(
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('home', function () {
-    return view('dashboard');
+Route::get('/home', function () {
+    return view('home');
 });
 //logout
     Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
@@ -51,15 +51,12 @@ Route::middleware([
 
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard.layouts.main');
+            return view('dashboard.layouts.main');
     })->name('dashboard');
 //    ->middleware('verified')
 
     //event Listeners
     Route::get('instagram-video', [VideoController::class, 'index']);
-
-
-
 
 //sliders
 //Route::controller(SliderController::class)->group(function () {

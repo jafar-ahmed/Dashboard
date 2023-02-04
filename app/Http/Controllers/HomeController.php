@@ -44,7 +44,7 @@ class HomeController extends Controller
             'app_contents' => $app_contents,
             'new_products' => $new_products,
         ]);
-        //return redirect()->route('dashboard');
+//        return redirect()->route('dashboard');
 
     }
 

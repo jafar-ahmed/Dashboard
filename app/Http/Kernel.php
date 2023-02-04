@@ -42,7 +42,6 @@ class Kernel extends HttpKernel
             // SweetAlert
             \RealRashid\SweetAlert\ToSweetAlert::class,
         ],
-
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
