@@ -203,7 +203,8 @@ return [
         //Yajra DataTables
         Yajra\DataTables\DataTablesServiceProvider::class,
 
-
+        //laravel debuger
+        Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
     /*
@@ -262,6 +263,9 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         //Yajra DataTables
        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+
+        //laravel debuger
+        'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
     ],
 
 ];

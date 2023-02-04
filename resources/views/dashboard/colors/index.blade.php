@@ -7,6 +7,8 @@
      <link rel="icon" type="image/x-icon" href="/logo.png">
      <a href="/dashboard/colors/create" style="margin-bottom:20px;" class="btn btn-primary"> <i
              class="fa fa-floppy-o"></i>{{ __('Add') }}</a>
+
+
      <div class="container">
          <table id="data-table" class="table table-bordered data-table">
              <thead>

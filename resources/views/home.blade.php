@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="body-content">
-        <!-- home-slider -->
+        <!-- home-sliders -->
         <section class="home-slider owl-carousel">
             @foreach ($sliders as $slider)
                 <div class="home-slider-item">
@@ -19,7 +19,7 @@
         <div class="progress">
             <div class="line"></div>
         </div>
-        <!-- home-slider -->
+        <!-- home-sliders -->
 
         <!-- main-categories-section -->
         <section class="main-categories-section">

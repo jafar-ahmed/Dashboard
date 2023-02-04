@@ -538,6 +538,7 @@ progress {
   margin-bottom: 1rem;
   font-size: 0.875em;
   color: #7E8299;
+
 }
 .blockquote-footer::before {
   content: "— ";

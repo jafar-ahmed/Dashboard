@@ -1,5 +1,9 @@
 @extends('dashboard.main-dashboard')
 @section('content')
+    @section('content1')
+        <a href="/dashboard/colors/" class="text-muted text-hover-primary">Colors <span style="color: black"> /  </span> </a>
+        <a href="/dashboard/colors/{{ $color->id }}/edit/" class="text-muted text-hover-primary">  Edit <span style="color: black"> / </span></a>
+    @endsection
      <div class="container">
          {{-- validation --}}
          @if ($errors->any())

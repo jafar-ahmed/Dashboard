@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
     "use strict";
-    /*************************************/ 
+    /*************************************/
 
     $('#openMenu').click(function (e) {
         e.preventDefault();
@@ -16,17 +16,17 @@ $(document).ready(function () {
         });
     });
 
-    /*************************************/ 
+    /*************************************/
 
-    
-	// home-slider
-    $('.home-slider').owlCarousel({
+
+	// home-sliders
+    $('.home-sliders').owlCarousel({
         // center: true,
         items: 1,
         loop: true,
         rtl: false,
         nav:true,
-        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],      
+        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],
         dots:true,
         autoplay: false,
         navSpeed: 2000,
@@ -58,13 +58,13 @@ $(document).ready(function () {
             }
         }
     });
-    // products-slider
-    $('.products-slider').owlCarousel({
+    // products-sliders
+    $('.products-sliders').owlCarousel({
         // center: true,
         loop: true,
         rtl: false,
         nav:false,
-        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],      
+        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],
         dots:false,
         autoplay: false,
         navSpeed: 2000,
@@ -96,13 +96,13 @@ $(document).ready(function () {
             }
         }
     });
-    // projects-slider
-    $('.projects-slider').owlCarousel({
+    // projects-sliders
+    $('.projects-sliders').owlCarousel({
         // center: true,
         loop: true,
         rtl: false,
         nav:false,
-        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],      
+        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],
         dots:false,
         autoplay: false,
         navSpeed: 2000,
@@ -134,13 +134,13 @@ $(document).ready(function () {
             }
         }
     });
-    // blog-slider
-    $('.blog-slider').owlCarousel({
+    // blog-sliders
+    $('.blog-sliders').owlCarousel({
         // center: true,
         loop: true,
         rtl: false,
         nav:false,
-        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],      
+        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],
         dots:false,
         autoplay: false,
         navSpeed: 2000,
@@ -172,13 +172,13 @@ $(document).ready(function () {
             }
         }
     });
-    // testimonial-slider
-    $('.testimonial-slider').owlCarousel({
+    // testimonial-sliders
+    $('.testimonial-sliders').owlCarousel({
         // center: true,
         loop: true,
         rtl: false,
         nav:false,
-        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],      
+        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],
         dots:true,
         autoplay: false,
         navSpeed: 2000,
@@ -210,13 +210,13 @@ $(document).ready(function () {
             }
         }
     });
-    // team-slider
-    $('.team-slider').owlCarousel({
+    // team-sliders
+    $('.team-sliders').owlCarousel({
         // center: true,
         loop: true,
         rtl: false,
         nav:false,
-        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],      
+        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],
         dots:false,
         autoplay: false,
         navSpeed: 2000,
@@ -248,13 +248,13 @@ $(document).ready(function () {
             }
         }
     });
-    $('.clients-slider').owlCarousel({
+    $('.clients-sliders').owlCarousel({
         // center: true,
         items: 1,
         loop: false,
         rtl: false,
         nav:true,
-        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],      
+        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],
         dots:false,
         autoplay: false,
         navSpeed: 2000,
@@ -286,14 +286,14 @@ $(document).ready(function () {
             }
         }
     });
-    // project-slider
-    $('.project-slider').owlCarousel({
+    // project-sliders
+    $('.project-sliders').owlCarousel({
         // center: true,
         items: 1,
         loop: false,
         rtl: false,
         nav:true,
-        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],      
+        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],
         dots:true,
         autoplay: false,
         navSpeed: 2000,
@@ -306,7 +306,7 @@ $(document).ready(function () {
         loop: true,
         rtl: false,
         nav:false,
-        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],      
+        navText: ["<i class='fas fa-chevron-right' title='Prev'></i>","<i class='fas fa-chevron-left' title='Next'></i>"],
         dots:false,
         autoplay: true,
         navSpeed: 2000,
@@ -328,8 +328,8 @@ $(document).ready(function () {
             768 : {
                 items:5,
             },
-   
+
         }
     });
-    
-}); 
+
+});

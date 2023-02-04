@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendMails;
+use App\Mail\NotifyEmail;
 use App\Models\App_Contents;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Slider;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -31,9 +35,9 @@ class HomeController extends Controller
         $categories = Category::all();
         $sliders = Slider::all();
         $app_contents = App_Contents::first();
-        $new_products = Product::where('is_active',1)->OrderByDesc('id')->take(8)->get();
-        $most_sales_products = Product::where('is_active',1)->OrderByDesc('id')->take(8)
-        ->where('on_sale','!=',0)->get();
+        $new_products = Product::where('is_active', 1)->OrderByDesc('id')->take(8)->get();
+        $most_sales_products = Product::where('is_active', 1)->OrderByDesc('id')->take(8)
+            ->where('on_sale', '!=', 0)->get();
         return view('home', [
             'sliders' => $sliders,
             'categories' => $categories,
@@ -43,4 +47,24 @@ class HomeController extends Controller
         //return redirect()->route('dashboard');
 
     }
+
+//    public function sendMails(){
+//        $emails = User::chunk(50, function ($data){
+//            dispatch(new SendMails($data));
+//        });
+//        return 'return send Mails !!!';
+//    }
+
+    public function sendMails()
+    {
+        try {
+            $emails = User::chunk(50, function ($data){
+                dispatch(new SendMails($data));
+            });
+           // return 'return send Mails !!!';
+        } catch (\Exception $e) {
+            return $this->unexpectedMessage();
+        }
+        }
+
 }

@@ -1,5 +1,9 @@
 @extends('dashboard.main-dashboard')
 @section('content')
+    @section('content1')
+        <a href="/dashboard/admins/" class="text-muted text-hover-primary">Admins <span style="color: black"> /  </span> </a>
+        <a href="/dashboard/admins/{{ $user->id }}/edit/" class="text-muted text-hover-primary">  Edit <span style="color: black"> / </span></a>
+    @endsection
      <div class="container">
          {{-- validation --}}
          @if ($errors->any())
@@ -35,8 +39,7 @@
                  <div class="card-footer">
                      <button type="submit" class="btn btn-primary mr-2">Save</button>
                  </div>
+             </div>
          </form>
 
-
-     </div>
 @endsection
