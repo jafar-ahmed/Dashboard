@@ -161,7 +161,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gray-color {
-  color: var(--grayColor) !important; 
+  color: var(--grayColor) !important;
 }
 
 .black-color {
@@ -855,7 +855,7 @@ html[dir="rtl"] .datepicker {
 
 /* main-footer */
 
-/* home-slider */
+/* home-sliders */
 .home-slider {}
 
 .home-slider .owl-nav {
@@ -923,7 +923,7 @@ html[dir="rtl"] .datepicker {
   transition: all .4s ease-in-out;
 }
 
-/* .home-slider .owl-dots span:before{
+/* .home-sliders .owl-dots span:before{
   content: "";
   position: absolute;
   top: -4px;
@@ -955,7 +955,7 @@ html[dir="rtl"] .datepicker {
   height: 100%;
 }
 
-/* home-slider */
+/* home-sliders */
 /* main-categories-section */
 .main-categories-section {
   margin: 25px 0;
@@ -3117,7 +3117,7 @@ html[dir="rtl"] .datepicker {
   .mt-lg-32 {
     margin-top: 32px !important;
   }
-  
+
 }
 
 @media (max-width: 991px) {

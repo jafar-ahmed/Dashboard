@@ -19,8 +19,8 @@ $(document).ready(function () {
     /*************************************/
 
 
-    // home-slider
-    var home_slider = $('.home-slider').owlCarousel({
+    // home-sliders
+    var home_slider = $('.home-sliders').owlCarousel({
         // center: true,
         items: 1,
         loop: true,
@@ -65,19 +65,19 @@ $(document).ready(function () {
         clearTimeout(silder_time_out);
         swiping(home_slider, silder_time_out, event.item.index);
     });
-    if ($('.home-slider .owl-item').not(".cloned").length > 1) {
+    if ($('.home-sliders .owl-item').not(".cloned").length > 1) {
         swiping(home_slider, silder_time_out);
     }
 
     function swiping(slider, silder_time_out, index = 1) {
-        if ($($('.home-slider-item')[index]).children('img').length != 0) {
+        if ($($('.home-sliders-item')[index]).children('img').length != 0) {
             silder_time_out = setTimeout(() => {
                 slider.trigger('next.owl.carousel');
             }, 2000);
             progress(1500, 500);
 
         } else {
-            let duration = parseFloat($('.home-slider-item').children('.item-video')[index - 1].duration) * 1000;
+            let duration = parseFloat($('.home-sliders-item').children('.item-video')[index - 1].duration) * 1000;
             silder_time_out = setTimeout(() => {
                 slider.trigger('next.owl.carousel');
             }, duration);
@@ -105,8 +105,8 @@ $(document).ready(function () {
 
     }
 
-    // products-slider
-    $('.products-slider').owlCarousel({
+    // products-sliders
+    $('.products-sliders').owlCarousel({
         // center: true,
         loop: false,
         rtl: true,
@@ -143,8 +143,8 @@ $(document).ready(function () {
             }
         }
     });
-    // projects-slider
-    $('.projects-slider').owlCarousel({
+    // projects-sliders
+    $('.projects-sliders').owlCarousel({
         // center: true,
         loop: false,
         rtl: true,
@@ -181,8 +181,8 @@ $(document).ready(function () {
             }
         }
     });
-    // blog-slider
-    $('.blog-slider').owlCarousel({
+    // blog-sliders
+    $('.blog-sliders').owlCarousel({
         // center: true,
         loop: false,
         rtl: true,
@@ -219,8 +219,8 @@ $(document).ready(function () {
             }
         }
     });
-    // testimonial-slider
-    $('.testimonial-slider').owlCarousel({
+    // testimonial-sliders
+    $('.testimonial-sliders').owlCarousel({
         // center: true,
         loop: false,
         rtl: true,
@@ -257,8 +257,8 @@ $(document).ready(function () {
             }
         }
     });
-    // team-slider
-    $('.team-slider').owlCarousel({
+    // team-sliders
+    $('.team-sliders').owlCarousel({
         // center: true,
         loop: false,
         rtl: true,
@@ -325,8 +325,8 @@ $(document).ready(function () {
 
         }
     });
-    // clients-slider
-    $('.clients-slider').owlCarousel({
+    // clients-sliders
+    $('.clients-sliders').owlCarousel({
         // center: true,
         items: 1,
         loop: false,
@@ -364,8 +364,8 @@ $(document).ready(function () {
             }
         }
     });
-    // project-slider
-    $('.project-slider').owlCarousel({
+    // project-sliders
+    $('.project-sliders').owlCarousel({
         // center: true,
         items: 1,
         loop: false,
@@ -380,4 +380,4 @@ $(document).ready(function () {
         smartSpeed: 450,
     });
 
-}); 
+});

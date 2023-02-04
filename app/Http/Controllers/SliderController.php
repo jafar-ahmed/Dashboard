@@ -16,7 +16,7 @@ class SliderController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="' . Route('dashboard.slider.edit', $row->id) . '" class="edit btn btn-success btn-sm"><i
+                    $btn = '<a href="' . Route('dashboard.sliders.edit', $row->id) . '" class="edit btn btn-success btn-sm"><i
                 class="fa fa-edit"></i></a>
                 <a class="btn btn-danger btn-sm deleteImage" data-id="' .
                         $row->id .
@@ -32,11 +32,11 @@ class SliderController extends Controller
                 })
                 ->make(true);
         }
-        return view('dashboard.slider.index');
+        return view('dashboard.sliders.index');
     }
     public function create()
     {
-        return view('dashboard.slider.create');
+        return view('dashboard.sliders.create');
     }
 
     public function store(Request $request)
@@ -57,14 +57,14 @@ class SliderController extends Controller
         }
 
         Slider::create($data);
-        return redirect('/dashboard/slider')->with('success', 'Slider Created Successfully!');
+        return redirect('/dashboard/sliders')->with('success', 'Slider Created Successfully!');
     }
 
     public function edit($id)
     {
         $slider = Slider::findOrFail($id);
-        return view('dashboard.slider.edit', [
-            'slider' => $slider,
+        return view('dashboard.sliders.edit', [
+            'sliders' => $slider,
         ]);
     }
 
@@ -83,13 +83,13 @@ class SliderController extends Controller
             $data['image'] = $filename;
         }
         $slider->update($data);
-        return redirect('/dashboard/slider')->with('success', 'Slider Updated Successfully!'); //toast_success
+        return redirect('/dashboard/sliders')->with('success', 'Slider Updated Successfully!'); //toast_success
     }
 
     public function destroy($id)
     {
         Slider::destroy($id);
-        return redirect('/dashboard/slider')->with('success', 'Slider Deleted Successfully!');
+        return redirect('/dashboard/sliders')->with('success', 'Slider Deleted Successfully!');
     }
 
     public function deleteImage($id)

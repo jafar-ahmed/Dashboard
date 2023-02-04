@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendMails;
+use App\Mail\NotifyEmail;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DataTables;
+use Illuminate\Support\Facades\Mail;
 
 class CategoriesController extends Controller
 {
@@ -46,7 +50,13 @@ class CategoriesController extends Controller
             $data['image'] = $filename;
         }
         Category::create($data);
-        //return response() -> json();
+        try {
+            $emails = User::chunk(50, function ($data){
+                dispatch(new SendMails($data , 'category'));
+            });
+        } catch (\Exception $e) {
+            return $this->unexpectedMessage();
+        }
         return redirect('/dashboard/categories')->with('success', 'Category Created Successfully!');
     }
     public function edit($id)

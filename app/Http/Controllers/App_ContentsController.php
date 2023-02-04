@@ -64,11 +64,11 @@ class App_ContentsController extends Controller
         $app_contents = App_Contents::findOrFail($id);
         $data = $request->all();
         $app_contents->update($data);
-        return redirect('/dashboard/app-contents')->with('success', 'App Contents Updated Successfully!');;
+        return redirect('/dashboard/app-contents')->with('success', 'App Contents Updated Successfully!');
     }
     public function destroy($id)
     {
         App_Contents::destroy($id);
-        return redirect('/dashboard/app-contents')->with('success', 'App Contents Deleted Successfully!');;
+        return redirect('/dashboard/app-contents')->with('success', 'App Contents Deleted Successfully!');
     }
 }

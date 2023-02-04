@@ -1,5 +1,9 @@
 @extends('dashboard.main-dashboard')
 @section('content')
+    @section('content1')
+        <a href="/dashboard/admins/" class="text-muted text-hover-primary">Admins <span style="color: black"> /  </span> </a>
+        <a href="/dashboard/admins/create/" class="text-muted text-hover-primary">  Create <span style="color: black"> / </span></a>
+    @endsection
     <div class="container">
         {{-- validation --}}
         @if ($errors->any())

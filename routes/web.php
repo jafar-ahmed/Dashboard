@@ -3,12 +3,17 @@
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\App_ContentsController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\SliderAjaxController;
 use App\Http\Controllers\ColorsController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentProvider;
 use App\Http\Controllers\SuppliersController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +27,11 @@ use Illuminate\Support\Facades\Route;
 */
 //Route::get('home', [HomeController::class, 'index']);
 
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,7 +39,8 @@ Route::get('/', function () {
 Route::get('home', function () {
     return view('dashboard');
 });
-
+//logout
+    Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 //dashboard
 //Route::get('dashboard', [DashboardController::class, 'index']);
 
@@ -40,24 +51,52 @@ Route::middleware([
 
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard.main-dashboard');
+        return view('dashboard.layouts.main');
     })->name('dashboard');
 //    ->middleware('verified')
 
+    //event Listeners
+    Route::get('instagram-video', [VideoController::class, 'index']);
+
+
+
+
 //sliders
-Route::controller(SliderController::class)->group(function () {
-    Route::prefix('dashboard/slider')->group(function () {
-        Route::get('/', 'index')->name('dashboard.slider');
-        Route::get('create', 'create');
-        Route::post('/',  'store');
-        Route::get('{id}/edit',  'edit')->name('dashboard.slider.edit');
-        Route::put('{id}',  'update');
-        Route::delete('{id}',  'destroy');
-        Route::get('deleteImage/{id}', 'deleteImage');
-        Route::get('deleteItem', 'deleteicon');
-        Route::get('/status-update/{id}', 'status_update');
+//Route::controller(SliderController::class)->group(function () {
+//    Route::prefix('dashboard/sliders')->group(function () {
+//        Route::get('/', 'index')->name('dashboard.sliders');
+//        Route::get('create', 'create');
+//        Route::post('/',  'store');
+//        Route::get('{id}/edit',  'edit')->name('dashboard.sliders.edit');
+//        Route::put('{id}',  'update');
+//        Route::delete('{id}',  'destroy');
+//        Route::get('deleteImage/{id}', 'deleteImage');
+//        Route::get('deleteItem', 'deleteicon');
+//        Route::get('/status-update/{id}', 'status_update');
+//    });
+//});
+
+//sliders ajax
+    Route::controller(SliderAjaxController::class)->group(function () {
+        Route::prefix('dashboard/sliders')->group(function () {
+            Route::get('/', 'index')->name('dashboard.sliders');
+            Route::get('create', 'create')->name('sliders.create');
+            Route::post('/',  'store')->name('sliders.store');
+            Route::get('/edit/{id}',  'edit')->name('sliders.edit');
+            Route::post('/update', 'update')->name('sliders.update');
+            Route::post('/delete',  'delete')->name('sliders.delete');
+            //
+            //
+
+            Route::get('deleteImage/{id}', 'deleteImage');
+            Route::get('deleteItem', 'deleteicon');
+            Route::get('/status-update/{id}', 'status_update');
+        });
     });
-});
+    Route::get('/dashboard/sliders/payment', [PaymentProvider::class, 'getCheckOutId'])->name('payment');
+
+    Route::get('/dashboard/send-mails', [HomeController::class, 'sendMails']);
+
 
 //categories
 Route::controller(CategoriesController::class)->group(function () {
@@ -150,6 +189,8 @@ Route::controller(AdminsController::class)->group(function () {
     });
 });
     });
+
+});
 Route::get('/c', function () {
     $exitCode = Artisan::call('config:cache');
     $exitCode = Artisan::call('view:clear');

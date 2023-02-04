@@ -1,5 +1,5 @@
 @extends('dashboard.main-dashboard')
-@section('content-main')
+@section('content')
 <div class="content d-flex flex-column flex-column-fluid fs-6" id="kt_content">
     <!--begin::Container-->
     <div class="container" id="kt_content_container">

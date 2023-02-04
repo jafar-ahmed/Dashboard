@@ -31,7 +31,7 @@
 {{--            @include('dashboard.layouts.main')--}}
             <!--end::Content-->
             <!--begin::Footer-->
-{{--        @include('dashboard.layouts.footer')--}}
+        @include('dashboard.layouts.footer')
 {{--            <!--end::Footer-->--}}
         </div>
         <!--end::Wrapper-->
@@ -39,10 +39,15 @@
     <!--end::Page-->
 </div>
 <!--end::Main-->
-@include('dashboard.layouts.extintions')
+{{--@include('dashboard.layouts.extintions')--}}
 <!--begin::Javascript-->
 @include('dashboard.layouts.js')
+
 @stack('javascripts')
+{{----}}
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+<script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+@yield('scripts')
 <!--end::Javascript-->
 </body>
 <!--end::Body-->
