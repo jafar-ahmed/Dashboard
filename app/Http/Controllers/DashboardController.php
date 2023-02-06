@@ -8,19 +8,21 @@ use Auth;
 
 class DashboardController extends Controller
 {
+
     public function adminLogin()
     {
         return response()->view('auth.admin-login');
     }
     public function adminLoginCheck(Request $request)
     {
+//        dd('gdgbergber');
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required|min:6'
         ]);
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])){
-            return redirect()->intended('');
+            return redirect()->intended('/dashboard');
         }
-        return response()->view('auth.admin-login');
+        return back()->withInput($request->only('email'));
     }
 }

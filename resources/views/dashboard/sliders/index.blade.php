@@ -146,8 +146,9 @@
 
     @push('javascripts')
         <script type="text/javascript">
-            $(function () {
-                var table = $('#data-table').DataTable({
+            var table;
+            $(document).ready(function() {
+                table = $('#data-table').DataTable({
                     processing: true,
                     serverSide: true,
                     ajax: "{{ route('dashboard.sliders') }}",
@@ -176,6 +177,7 @@
                     ]
                 });
             });
+
             // model create
             $(document).on('click', '#save', function (e) {
                 e.preventDefault();

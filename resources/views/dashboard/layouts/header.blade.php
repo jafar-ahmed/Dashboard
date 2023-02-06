@@ -791,7 +791,7 @@
                     <!--begin::Menu item-->
                     <div class="menu-item px-5">
                         <a href="/logout" class="menu-link px-5">{{__('app.Sign Out')}}</a>
-                       <script>@click.prevent="$root.submit();"</script>
+
                     </div>
                     <!--end::Menu item-->
                 </div>

@@ -21,9 +21,10 @@ class SliderAjaxController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a id="edit" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="@mdo" data-id="'.$row->id.'"  class="btn btn-success btn-sm"><i
+                    $btn = '<a id="edit" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-whatever="@mdo" data-id="'.$row->id.'"  class="btn btn-sm btn-light-success"><i
                 class="fa fa-edit"></i></a>
-                <a class="btn btn-danger btn-sm delete" slider-id="' .
+
+                <a class="btn btn-sm btn-light-danger delete" slider-id="' .
                         $row->id .
                         '" >
                     <i class="fa fa-trash"></i>
