@@ -8,6 +8,7 @@ use App\Http\Controllers\ColorsController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PaymentProvider;
 use App\Http\Controllers\SuppliersController;
 use App\Http\Controllers\VideoController;
@@ -38,22 +39,24 @@ Route::get('/', function () {
 });
 Route::get('/home', function () {
     return view('home');
-});
+})->middleware('auth:web');
 //logout
     Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 //dashboard
-//Route::get('dashboard', [DashboardController::class, 'index']);
+    Route::get('dashboard/login', [DashboardController::class, 'adminLogin'])->name('dashboard.login');
+    Route::post('dashboard/login', [DashboardController::class, 'adminLoginCheck'])->name('dashboard.login.check');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
-
+    'verified',
+//    'auth:admin'
 ])->group(function () {
+    //admin login
+
     Route::get('/dashboard', function () {
             return view('dashboard.layouts.main');
     })->name('dashboard');
-//    ->middleware('verified')
 
     //event Listeners
     Route::get('instagram-video', [VideoController::class, 'index']);

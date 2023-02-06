@@ -14,11 +14,11 @@
 
 
         <!-- Pills content -->
-        <p>
-            Home Login
-        </p>
+<p>
+    Dashboard Login
+</p>
         <br>
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('dashboard.login.check') }}">
             @csrf
 
             <div>
