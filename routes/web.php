@@ -39,7 +39,7 @@ Route::get('/', function () {
 });
 Route::get('/home', function () {
     return view('home');
-})->middleware('auth:web');
+});
 //logout
     Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 //dashboard
